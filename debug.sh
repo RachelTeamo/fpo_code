@@ -1,0 +1,23 @@
+ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 --master_port=2452 train.py \
+  --report-to="wandb" \
+  --allow-tf32 \
+  --mixed-precision="fp16" \
+  --seed=0 \
+  --batch-size 128 \
+  --path-type="linear" \
+  --prediction="v" \
+  --weighting="uniform" \
+  --model="SiT-B/2" \
+  --enc-type="dinov2-vit-b" \
+  --proj-coeff=0.5 \
+  --encoder-depth=4 \
+  --output-dir="tmp" \
+  --exp-name="debug" \
+  --use-fisher-weighting \
+  --fisher-ratio 0.6 \
+  --fisher-temperature 0.1 \
+  --fisher-weight-strategy softmax \
+  --data-dir=/home/user/code/zty/repa_dataset \
+  --fisher-aug 2.0 \
+  --fisher-time-min 0.8 \
+  --fisher-time-max 1.0 
