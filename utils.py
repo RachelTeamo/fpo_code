@@ -92,7 +92,10 @@ def load_encoders(enc_type, device, resolution=256):
                 encoder = torch.hub.load(path, f'dinov2_vit{model_config}14_reg')
             else:
                 # torch.hub.set_dir('/home/user/code/zty/cvpr26/dino_local/')
-                encoder = torch.hub.load('facebookresearch/dinov2', f'dinov2_vit{model_config}14')
+                # encoder = torch.hub.load('facebookresearch/dinov2', f'dinov2_vit{model_config}14')
+                path = "/home/user/.cache/torch/hub/facebookresearch_dinov2_main"
+                ckpt = "/home/user/.cache/torch/hub/checkpoints/dinov2_vitb14_pretrain.pth"
+                encoder = torch.hub.load(path, f'dinov2_vit{model_config}14', trust_repo=True, source='local')
             del encoder.head
             patch_resolution = 16 * (resolution // 256)
             encoder.pos_embed.data = timm.layers.pos_embed.resample_abs_pos_embed(

@@ -16,7 +16,6 @@
   --use-fisher-weighting \
   --fisher-ratio 0.6 \
   --fisher-temperature 0.1 \
-  --fisher-weight-strategy softmax \
   --data-dir=/home/user/code/zty/repa_dataset \
   --fisher-aug 2.0 \
   --fisher-time-min 0.8 \
