@@ -20,6 +20,7 @@
   --fisher-aug 2.0 \
   --fisher-time-min 0.95 \
   --fisher-time-max 1.0 \
+  --use-time-conditional-fisher \
 
 torchrun --nnodes=1 --nproc_per_node=2 generate.py \
   --model SiT-B/2 \
